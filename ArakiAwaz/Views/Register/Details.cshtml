@@ -1,0 +1,154 @@
+﻿@model ArakiAwaz.Models.memberregistration
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>memberregistration</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.membername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.membername)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.memberemail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.memberemail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.memberphone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.memberphone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.membergender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.membergender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.memberage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.memberage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.memberstate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.memberstate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.membercity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.membercity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.memberfathername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.memberfathername)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.memberwardno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.memberwardno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.memberlocality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.memberlocality)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.membervillage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.membervillage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.memberpanchayat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.memberpanchayat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.memberblock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.memberblock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.memberwhatsupno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.memberwhatsupno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.entrydate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.entrydate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.modifydate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.modifydate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

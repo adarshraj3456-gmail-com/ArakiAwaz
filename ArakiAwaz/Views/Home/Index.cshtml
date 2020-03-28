@@ -1,0 +1,393 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model ArakiAwaz.dto.memberform
+
+@*<div class="jumbotron">
+        <h1>आरा की आवाज़ </h1>
+
+    </div>*@
+
+
+<div class="container-fluid no_pl_320">
+    <div class="left_fix_panel">
+        @*<img src="~/Image/aralogo.PNG" />*@
+        <img src="~/Image/veerkunwarsingh.jpg" class="img-responsive">
+        @*<div class="logo_sec">
+                <div class="inner_outline">
+                    <div class="logo-row">
+                        <img src="~/Image/arakiawaz.jpg" class="img-responsive">
+                    </div>
+
+                </div>
+            </div>*@
+    </div>
+
+    <div class="signup_page_sec">
+        <div class="form_area">
+
+
+            <h2 class="inner_pghdng mt-5">
+                Message UPdate soon
+                <br />
+                <span>Updated soon</span>
+            </h2>
+            <hr />
+            <h2 class="inner_pghdng mt-5">
+                हमसे क्यों जुड़े?<br />
+                <span>Updated Soon</span>
+            </h2>
+            <!-- <p class="highlight_message mt-4">
+                            Whether you are based in Delhi and can help us on ground or you are based outside Delhi but have the zest to help the party, we are ready to welcome you to Team <b>Lage Raho Kejriwal</b>.<br>
+            So let's get in touch and get started!            </p> -->
+
+            <h3><span>Please fill the below details ( कृपया नीचे विवरण भरें ) :</span></h3>
+
+
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form_box volunteerpart1">
+
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <div class="input_field">
+                                @Html.ValidationMessageFor(model => model.membername, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.membername)
+                                @Html.EditorFor(model => model.membername)
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_field">
+                                @Html.ValidationMessageFor(model => model.memberfathername, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.memberfathername)
+                                @Html.EditorFor(model => model.memberfathername)
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <div class="input_field">
+                                @Html.ValidationMessageFor(model => model.memberphone, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.memberphone)
+                                @Html.EditorFor(model => model.memberphone)
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_field">
+                                @Html.ValidationMessageFor(model => model.memberwhatsupno, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.memberwhatsupno)
+                                @Html.EditorFor(model => model.memberwhatsupno)
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+
+                        @{
+                            List<SelectListItem> gender = new List<SelectListItem>();
+                            gender.Add(new SelectListItem
+                            {
+                                Text = "Male",
+                                Value = "Male",
+                                Selected = true
+                            });
+                            gender.Add(new SelectListItem
+                            {
+                                Text = "Female",
+                                Value = "Female"
+
+
+                            });
+
+                        }
+
+                        <div class="col-md-6">
+                            <div class="input_field">
+                                @Html.ValidationMessageFor(model => model.membergender, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.membergender)
+
+                                @Html.DropDownListFor(model => model.membergender, gender)
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_field">
+                                @Html.ValidationMessageFor(model => model.memberage, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.memberage)
+                                @Html.EditorFor(model => model.memberage)
+
+                            </div>
+                        </div>
+
+                    </div>
+                    @{
+                        List<SelectListItem> citylist = new List<SelectListItem>();
+                        citylist.Add(new SelectListItem
+                        {
+                            Text = "Andhra Pradesh",
+                            Value = "Andhra Pradesh",
+                            Selected = true
+                        });
+                        citylist.Add(new SelectListItem
+                        {
+                            Text = "Arunachal Pradesh",
+                            Value = "Arunachal Pradesh"
+                        });
+
+                        citylist.Add(new SelectListItem
+                        {
+                            Text = "Assam",
+                            Value = "Assam"
+                        });
+                        citylist.Add(new SelectListItem
+                        {
+                            Text = "Bihar",
+                            Value = "Bihar",
+                            Selected = true
+                        });
+
+                    }
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <div class="input_field">
+                                @Html.ValidationMessageFor(model => model.memberstate, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.memberstate)
+                                @Html.DropDownListFor(model => model.memberstate, citylist, "-- Select State --")
+
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-6">
+                            <div class="input_field">
+                                @Html.ValidationMessageFor(model => model.membercity, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.membercity)
+                                @Html.EditorFor(model => model.membercity)
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <div class="input_field">
+                                @Html.ValidationMessageFor(model => model.memberwardno, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.memberwardno)
+                                @Html.EditorFor(model => model.memberwardno)
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_field">
+                                @Html.ValidationMessageFor(model => model.memberlocality, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.memberlocality)
+                                @Html.EditorFor(model => model.memberlocality)
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <div class="input_field">
+                                @Html.ValidationMessageFor(model => model.memberemail, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.memberemail)
+                                @Html.EditorFor(model => model.memberemail)
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_field">
+                                @Html.ValidationMessageFor(model => model.membervillage, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.membervillage)
+                                @Html.EditorFor(model => model.membervillage)
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    @{
+                        List<SelectListItem> listItems = new List<SelectListItem>();
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "Udawant Nagar",
+                            Value = "Udawant Nagar"
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "Sandesh",
+                            Value = "Sandesh",
+                            Selected = true
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "Koilwer",
+                            Value = "Koilwer"
+                        });
+
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "Ara",
+                            Value = "Ara"
+                        });
+
+                    }
+
+
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <div class="input_field">
+                                @Html.ValidationMessageFor(model => model.memberblock)
+                                @Html.LabelFor(model => model.memberblock)
+                                @Html.DropDownListFor(model => model.memberblock, listItems, "-- Select block --")
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input_field">
+                                @Html.ValidationMessageFor(model => model.memberpanchayat, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.memberpanchayat)
+                                @Html.EditorFor(model => model.memberpanchayat)
+
+                            </div>
+                        </div>
+
+
+                        @*<div class="col-md-6">
+                                <div class="input_field">
+                                    @Html.ValidationMessageFor(model => model.memberpanchayat, "", new { @class = "text-danger" })
+                                    @Html.LabelFor(model => model.memberpanchayat)
+                                    @Html.EditorFor(model => model.memberpanchayat)
+
+                                </div>
+                            </div>*@
+
+                    </div>
+
+
+
+
+
+
+
+                    <div class="form-group text-center mt-5">
+                        <button type="submit" class="submit_btn">Submit </button>
+                    </div>
+                    <!-- <div class="form-group text-center mt-5">
+                    <a href="JavaScript:void(0);" class="submit_btn">Proceed <i class="fas fa-long-arrow-alt-right"></i></a>
+                    </div> -->
+
+                </div>
+
+            }
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+@section Scripts {
+ 
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#memberphone').keyup(function () {
+                var mobile = $(this).val();
+
+                if (mobile.length >= 3) {
+                    $.ajax({
+                        url: '/home/checkmobile',
+                        method: 'post',
+                        data: { mobile: mobile },
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data)
+
+
+                            if (data == true) {
+                                $(':input[type="submit"]').prop('disabled', true);
+                                $("#memberphone").css("color", "red");
+                                alert("Phone Number Already Exists")
+                                return;
+                            }
+                            else {
+                                $("#memberphone").css("color", "black");
+                                $(':input[type="submit"]').prop('disabled', false);
+                            }
+                        },
+                        error: function (err) {
+                            alert(err);
+                        }
+                    });
+                }
+            });
+
+
+            //$('#memberemail').keyup(function () {
+            //    var memberemail = $(this).val();
+
+            //    if (memberemail.length >= 3) {
+            //        $.ajax({
+            //            url: '/home/IsAlreadySigned',
+            //            method: 'post',
+            //            data: { UserEmailId: memberemail },
+            //            dataType: 'json',
+            //            success: function (data) {
+            //                console.log(data)
+
+
+            //                if (data == true) {
+            //                    $(':input[type="submit"]').prop('disabled', true);
+            //                    $("#memberemail").css("color", "red");
+            //                    alert("Email id  Already Exists")
+            //                    return;
+            //                }
+            //                else {
+            //                    $("#memberemail").css("color", "black");
+            //                    $(':input[type="submit"]').prop('disabled', false);
+            //                }
+            //            },
+            //            error: function (err) {
+            //                alert(err);
+            //            }
+            //        });
+            //    }
+            //});
+        });
+    </script>
+
+
+}

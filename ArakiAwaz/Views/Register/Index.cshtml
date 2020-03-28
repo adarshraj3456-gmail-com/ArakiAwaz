@@ -1,0 +1,142 @@
+﻿@model IEnumerable<ArakiAwaz.Models.memberregistration>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@*<div class="container"></div>*@
+
+    <a href="/register/logout" class="btn btn-primary active">Logout</a>
+
+<table class="table table-bordered" id="DataAra">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.membername)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.memberemail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.memberphone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.membergender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.memberage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.memberstate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.membercity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.memberfathername)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.memberwardno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.memberlocality)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.membervillage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.memberpanchayat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.memberblock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.memberwhatsupno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.entrydate)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.modifydate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.membername)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.memberemail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.memberphone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.membergender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.memberage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.memberstate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.membercity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.memberfathername)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.memberwardno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.memberlocality)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.membervillage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.memberpanchayat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.memberblock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.memberwhatsupno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.entrydate)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.modifydate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.status)
+                </td>*@
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+@section scripts{
+    
+    <script>
+        $(document).ready(function () {
+            $('#DataAra').DataTable();
+        });
+    </script>
+    }

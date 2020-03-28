@@ -1,0 +1,497 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model ArakiAwaz.dto.memberform
+
+@*<div class="jumbotron">
+        <h1>आरा की आवाज़ </h1>
+
+    </div>*@
+
+
+    <div class="container-fluid no_pl_320">
+        <div class="left_fix_panel">
+            <div class="logo_sec">
+                <div class="inner_outline">
+                    <div class="logo-row">
+                        <img src="https://joinaap.in/public_inc/images/lagerahokejrwal.png">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="signup_page_sec">
+            <div class="form_area">
+
+
+                <h2 class="inner_pghdng mt-5">
+                    Why Join AAP ?
+                    <span>The Aam Aadmi Party has set an example of good governance by delivering on all its promises in the last five years, first of its kind in our nation. It has shown that elections can be fought and won based on the work done.</span>
+
+                    <span>Aam Aadmi Party welcomes people from all the walks of life who believe in our ideology and want to contribute to the development of the nation.</span>
+                </h2>
+                <h2 class="inner_pghdng mt-5">
+                    हमसे क्यों जुड़े?
+                    <span>आम आदमी पार्टी ने पिछले 5 वर्षों में अपने सभी वादों को पूरा कर सुशासन की मिसाल कायम की और दुनिया को ये दिखाया है कि काम के आधार पर भी चुनाव लड़ा और जीता जा सकता है।</span>
+
+                    <span>आम आदमी पार्टी एक ऐसी पार्टी है जिसने हमेशा सभी वर्गों के लोगों का स्वागत किया है, और यह संदेश दिया है कि शिक्षित लोग राजनीति में उतर कर समाज में एक बदलाव ला सकते हैं।</span>
+                </h2>
+                <!-- <p class="highlight_message mt-4">
+                    Whether you are based in Delhi and can help us on ground or you are based outside Delhi but have the zest to help the party, we are ready to welcome you to Team <b>Lage Raho Kejriwal</b>.<br>
+    So let's get in touch and get started!            </p> -->
+
+                <h3><span>Please fill the below details ( कृपया नीचे विवरण भरें ) :</span></h3>
+
+
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form_box volunteerpart1">
+
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <div class="input_field">
+                            @Html.ValidationMessageFor(model => model.membername, "", new { @class = "text-danger" })
+                            @Html.LabelFor(model => model.membername)
+                            @Html.EditorFor(model => model.membername)
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input_field">
+                            @Html.ValidationMessageFor(model => model.memberfathername, "", new { @class = "text-danger" })
+                            @Html.LabelFor(model => model.memberfathername)
+                            @Html.EditorFor(model => model.memberfathername)
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <div class="input_field">
+                            @Html.ValidationMessageFor(model => model.memberphone, "", new { @class = "text-danger" })
+                            @Html.LabelFor(model => model.memberphone)
+                            @Html.EditorFor(model => model.memberphone)
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input_field">
+                            @Html.ValidationMessageFor(model => model.memberwhatsupno, "", new { @class = "text-danger" })
+                            @Html.LabelFor(model => model.memberwhatsupno)
+                            @Html.EditorFor(model => model.memberwhatsupno)
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <div class="input_field">
+                            @Html.ValidationMessageFor(model => model.membergender, "", new { @class = "text-danger" })
+                            @Html.LabelFor(model => model.membergender)
+                            @Html.RadioButtonFor(model => model.membergender, "Male") Male
+                            @Html.RadioButtonFor(model => model.membergender, "Female") Female
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input_field">
+                            @Html.ValidationMessageFor(model => model.memberage, "", new { @class = "text-danger" })
+                            @Html.LabelFor(model => model.memberage)
+                            @Html.EditorFor(model => model.memberage)
+
+                        </div>
+                    </div>
+
+                </div>
+                @{
+                    List<SelectListItem> citylist = new List<SelectListItem>();
+                    citylist.Add(new SelectListItem
+                    {
+                        Text = "Udawant Nagar",
+                        Value = "Udawant Nagar"
+                    });
+                    citylist.Add(new SelectListItem
+                    {
+                        Text = "Andhra Pradesh",
+                        Value = "Andhra Pradesh",
+                        Selected = true
+                    });
+                    citylist.Add(new SelectListItem
+                    {
+                        Text = "Arunachal Pradesh",
+                        Value = "Arunachal Pradesh"
+                    });
+
+                    citylist.Add(new SelectListItem
+                    {
+                        Text = "Assam",
+                        Value = "Assam"
+                    });
+                    citylist.Add(new SelectListItem
+                    {
+                        Text = "Bihar",
+                        Value = "Bihar"
+                    });
+
+                }
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <div class="input_field">
+                            @Html.ValidationMessageFor(model => model.memberstate, "", new { @class = "text-danger" })
+                            @Html.LabelFor(model => model.memberstate)
+                            @Html.DropDownListFor(model => model.memberblock, citylist, "-- Select State --")
+
+
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="col-md-6">
+                        <div class="input_field">
+                            @Html.ValidationMessageFor(model => model.membercity, "", new { @class = "text-danger" })
+                            @Html.LabelFor(model => model.membercity)
+                            @Html.EditorFor(model => model.membercity)
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <div class="input_field">
+                            @Html.ValidationMessageFor(model => model.memberwardno, "", new { @class = "text-danger" })
+                            @Html.LabelFor(model => model.memberwardno)
+                            @Html.EditorFor(model => model.memberwardno)
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input_field">
+                            @Html.ValidationMessageFor(model => model.memberlocality, "", new { @class = "text-danger" })
+                            @Html.LabelFor(model => model.memberlocality)
+                            @Html.EditorFor(model => model.memberlocality)
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <div class="input_field">
+                            @Html.ValidationMessageFor(model => model.membervillage, "", new { @class = "text-danger" })
+                            @Html.LabelFor(model => model.membervillage)
+                            @Html.EditorFor(model => model.membervillage)
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input_field">
+                            @Html.ValidationMessageFor(model => model.memberpanchayat, "", new { @class = "text-danger" })
+                            @Html.LabelFor(model => model.memberpanchayat)
+                            @Html.EditorFor(model => model.memberpanchayat)
+
+                        </div>
+                    </div>
+
+                </div>
+
+                @{
+                    List<SelectListItem> listItems = new List<SelectListItem>();
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Udawant Nagar",
+                        Value = "Udawant Nagar"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Sandesh",
+                        Value = "Sandesh",
+                        Selected = true
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Koilwer",
+                        Value = "Koilwer"
+                    });
+
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Ara",
+                        Value = "Ara"
+                    });
+
+                }
+
+
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <div class="input_field">
+                            @Html.ValidationMessageFor(model => model.memberblock)
+                            @Html.LabelFor(model => model.memberblock)
+                            @Html.DropDownListFor(model => model.memberblock, listItems, "-- Select block --")
+
+
+                        </div>
+                    </div>
+                    @*<div class="col-md-6">
+                <div class="input_field">
+                    @Html.ValidationMessageFor(model => model.memberpanchayat, "", new { @class = "text-danger" })
+                    @Html.LabelFor(model => model.memberpanchayat)
+                    @Html.EditorFor(model => model.memberpanchayat)
+
+                </div>
+            </div>*@
+
+                </div>
+
+
+
+                
+
+
+
+                <div class="form-group text-center mt-5">
+                    <button type="submit" class="submit_btn">Submit </button>
+                </div>
+                <!-- <div class="form-group text-center mt-5">
+    <a href="JavaScript:void(0);" class="submit_btn">Proceed <i class="fas fa-long-arrow-alt-right"></i></a>
+    </div> -->
+
+            </div>
+
+                            }
+
+
+
+
+                        </div>
+        </div>
+
+
+
+
+    </div>
+
+    <img src="~/Image/arakiawaz.jpg" class="img-responsive" />
+
+    <div class="panel panel-default">
+
+        <div class="panel-heading">हमसे  जुड़े </div>
+
+        <div class="row">
+
+
+            @if (ViewBag.message == null || ViewBag.message == "")
+
+            {
+                <div class="panel-body">
+
+                    <fieldset class="col-md-12">
+                        @*<legend>Fieldset Title</legend>*@
+
+                        <div class="panel panel-default">
+
+
+
+                            <div class="panel-body">
+
+                                @using (Html.BeginForm())
+                                {
+                                   
+                                    <div class="form-horizontal">
+                                        <h4>Ara Ki Awaz</h4>
+                                        <hr />
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.membername, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.membername, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.membername, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                           
+                                            <div class="col-md-10">
+                                               
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.memberwhatsupno, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.memberwhatsupno, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.memberwhatsupno, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.memberphone, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.memberphone, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.memberphone, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.memberfathername, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.memberfathername, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.memberfathername, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.membergender, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+
+                                                @Html.RadioButtonFor(model => model.membergender, "Male") Male
+                                                @Html.RadioButtonFor(model => model.membergender, "Female") Female
+                                                @Html.ValidationMessageFor(model => model.membergender, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.memberage, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.memberage, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.memberage, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.memberstate, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.memberstate, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.memberstate, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.membercity, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.membercity, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.membercity, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.memberwardno, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.memberwardno, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.memberwardno, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.memberlocality, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.memberlocality, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.memberlocality, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.membervillage, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.membervillage, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.membervillage, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.memberpanchayat, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.memberpanchayat, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.memberpanchayat, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        @{
+                                            List<SelectListItem> listItems = new List<SelectListItem>();
+                                            listItems.Add(new SelectListItem
+                                            {
+                                                Text = "Udawant Nagar",
+                                                Value = "Udawant Nagar"
+                                            });
+                                            listItems.Add(new SelectListItem
+                                            {
+                                                Text = "Sandesh",
+                                                Value = "Sandesh",
+                                                Selected = true
+                                            });
+                                            listItems.Add(new SelectListItem
+                                            {
+                                                Text = "Koilwer",
+                                                Value = "Koilwer"
+                                            });
+
+                                            listItems.Add(new SelectListItem
+                                            {
+                                                Text = "Ara",
+                                                Value = "Ara"
+                                            });
+
+                                        }
+
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.memberblock, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+
+                                                @Html.DropDownListFor(model => model.memberblock, listItems, "-- Select block --", new { @class = "form-control" })
+
+                                                @*@Html.EditorFor(model => model.memberblock, new { htmlAttributes = new { @class = "form-control" } })*@
+                                                @Html.ValidationMessageFor(model => model.memberblock, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <input type="submit" value="Submit" class="btn btn-danger" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                }
+
+                            </div>
+                        </div>
+
+                    </fieldset>
+
+                    <div class="clearfix"></div>
+                </div>
+            }
+
+            else
+            {
+
+                <p>@ViewBag.message</p>
+
+            }
+        </div>
+    </div>
+
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ArakiAwazModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin_table">
+          <Key>
+            <PropertyRef Name="Login_name" />
+          </Key>
+          <Property Name="Login_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pass" Type="varchar" MaxLength="50" />
+          <Property Name="role" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="memberregistration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="membername" Type="varchar" MaxLength="500" />
+          <Property Name="memberemail" Type="varchar" MaxLength="100" />
+          <Property Name="memberphone" Type="varchar" MaxLength="50" />
+          <Property Name="membergender" Type="varchar" MaxLength="50" />
+          <Property Name="memberage" Type="varchar" MaxLength="50" />
+          <Property Name="memberstate" Type="varchar" MaxLength="50" />
+          <Property Name="membercity" Type="varchar" MaxLength="500" />
+          <Property Name="memberfathername" Type="varchar" MaxLength="500" />
+          <Property Name="memberwardno" Type="varchar" MaxLength="500" />
+          <Property Name="memberlocality" Type="varchar" MaxLength="500" />
+          <Property Name="membervillage" Type="varchar" MaxLength="500" />
+          <Property Name="memberpanchayat" Type="varchar" MaxLength="500" />
+          <Property Name="memberblock" Type="varchar" MaxLength="500" />
+          <Property Name="memberwhatsupno" Type="varchar" MaxLength="500" />
+          <Property Name="entrydate" Type="datetime" />
+          <Property Name="modifydate" Type="datetime" />
+          <Property Name="status" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="ArakiAwazModelStoreContainer">
+          <EntitySet Name="Admin_table" EntityType="Self.Admin_table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="memberregistration" EntityType="Self.memberregistration" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ArakiAwazModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ArakiAwazEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="memberregistrations" EntityType="ArakiAwazModel.memberregistration" />
+          <EntitySet Name="Admin_table" EntityType="ArakiAwazModel.Admin_table" />
+        </EntityContainer>
+        <EntityType Name="memberregistration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="membername" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="memberemail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="memberphone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="membergender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="memberage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="memberstate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="membercity" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="memberfathername" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="memberwardno" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="memberlocality" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="membervillage" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="memberpanchayat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="memberblock" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="memberwhatsupno" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="entrydate" Type="DateTime" Precision="3" />
+          <Property Name="modifydate" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Admin_table">
+          <Key>
+            <PropertyRef Name="Login_name" />
+          </Key>
+          <Property Name="Login_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ArakiAwazModelStoreContainer" CdmEntityContainer="ArakiAwazEntities" >
+          <EntitySetMapping Name="memberregistrations">
+            <EntityTypeMapping TypeName="ArakiAwazModel.memberregistration">
+              <MappingFragment StoreEntitySet="memberregistration">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="modifydate" ColumnName="modifydate" />
+                <ScalarProperty Name="entrydate" ColumnName="entrydate" />
+                <ScalarProperty Name="memberwhatsupno" ColumnName="memberwhatsupno" />
+                <ScalarProperty Name="memberblock" ColumnName="memberblock" />
+                <ScalarProperty Name="memberpanchayat" ColumnName="memberpanchayat" />
+                <ScalarProperty Name="membervillage" ColumnName="membervillage" />
+                <ScalarProperty Name="memberlocality" ColumnName="memberlocality" />
+                <ScalarProperty Name="memberwardno" ColumnName="memberwardno" />
+                <ScalarProperty Name="memberfathername" ColumnName="memberfathername" />
+                <ScalarProperty Name="membercity" ColumnName="membercity" />
+                <ScalarProperty Name="memberstate" ColumnName="memberstate" />
+                <ScalarProperty Name="memberage" ColumnName="memberage" />
+                <ScalarProperty Name="membergender" ColumnName="membergender" />
+                <ScalarProperty Name="memberphone" ColumnName="memberphone" />
+                <ScalarProperty Name="memberemail" ColumnName="memberemail" />
+                <ScalarProperty Name="membername" ColumnName="membername" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admin_table">
+            <EntityTypeMapping TypeName="ArakiAwazModel.Admin_table">
+              <MappingFragment StoreEntitySet="Admin_table">
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="Login_name" ColumnName="Login_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
