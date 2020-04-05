@@ -207,7 +207,14 @@
                             <div class="input_field">
                                 @Html.ValidationMessageFor(model => model.memberemail, "", new { @class = "text-danger" })
                                 @Html.LabelFor(model => model.memberemail)
-                                @Html.EditorFor(model => model.memberemail)
+
+                                <input class="text-box single-line" data-val="true" 
+                                       data-val-remote="EmailId already exists" 
+                                       data-val-remote-additionalfields="*.memberemail" 
+                                       data-val-remote-type="POST" 
+                                       data-val-remote-url="/Home/IsAlreadySigned"
+                                       id="memberemail" name="memberform.memberemail" type="email" value="">
+                                @*@Html.EditorFor(model => model.memberemail, new { @name = "memberform.memberemail_" })*@
 
 
                             </div>

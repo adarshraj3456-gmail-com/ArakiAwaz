@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Threading.Tasks;
 using System.Web.Security;
+using System.Web.UI;
 
 namespace ArakiAwaz.Controllers
 {
@@ -132,10 +133,11 @@ namespace ArakiAwaz.Controllers
 
 
         [HttpPost]
-        public JsonResult IsAlreadySigned(string UserEmailId)
+        [OutputCache(Location = OutputCacheLocation.None, NoStore = true)]
+        public JsonResult IsAlreadySigned([Bind(Prefix = "memberform.memberemail")]string memberemail)
         {
 
-            return Json(IsUserEmailAvailable(UserEmailId));
+            return Json(IsUserEmailAvailable(memberemail));
 
         }
 
@@ -153,10 +155,10 @@ namespace ArakiAwaz.Controllers
         public bool IsUserEmailAvailable(string EmailId)
         {
 
-            var RegEmailId = db.memberregistrations.Any(x => x.memberemail == EmailId);
+            var RegEmailId = db.memberregistrations.Where(x => x.memberemail == EmailId);
 
             bool status;
-            if (RegEmailId)
+            if (RegEmailId!=null)
             {
                 //Already registered  
                 status = true;
